@@ -1,0 +1,317 @@
+:root {
+    --primary-color: #A32D2D;
+    --secondary-color: #FFD700;
+    --accent-color: #1A759F;
+    --dark-background: #1C1C1C;
+    --light-text: #F5F5F5;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-background);
+    color: var(--light-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2.2em;
+    color: var(--secondary-color);
+    margin-left: 40px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.nav-links {
+    margin-right: 40px;
+}
+
+.nav-links a {
+    color: var(--light-text);
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Hero del Menú */
+.menu-hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover no-repeat fixed;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light-text);
+    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.5);
+}
+
+.menu-hero h1 {
+    font-family: var(--font-heading);
+    font-size: 4.5em;
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.7);
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInDown 1.5s ease-out;
+}
+
+/* Secciones del Menú */
+.menu-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.menu-section:nth-of-type(odd) {
+    background-color: #282828;
+}
+
+.menu-section h2 {
+    font-family: var(--font-heading);
+    font-size: 3.5em;
+    color: var(--secondary-color);
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.menu-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 5px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.menu-item {
+    background-color: var(--dark-background);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.item-info {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item-info h3 {
+    font-family: var(--font-heading);
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.item-info p {
+    font-size: 1.1em;
+    color: var(--light-text);
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.item-price {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--accent-color);
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: var(--light-text);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.footer-links a {
+    color: var(--light-text);
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: var(--light-text);
+    font-size: 1.5em;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+/* Botón WhatsApp */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .logo {
+        margin: 10px 0;
+        font-size: 1.8em;
+    }
+
+    .nav-links {
+        margin: 10px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        margin: 5px 15px;
+    }
+
+    .menu-hero h1 {
+        font-size: 3em;
+    }
+
+    .menu-section h2 {
+        font-size: 2.5em;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-item img {
+        height: 200px;
+    }
+
+    .item-info h3 {
+        font-size: 1.6em;
+    }
+
+    .item-info p {
+        font-size: 1em;
+    }
+
+    .item-price {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.6em;
+    }
+
+    .menu-hero h1 {
+        font-size: 2.2em;
+    }
+
+    .menu-section h2 {
+        font-size: 2em;
+    }
+
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8em;
+        bottom: 20px;
+        right: 20px;
+    }
+}
