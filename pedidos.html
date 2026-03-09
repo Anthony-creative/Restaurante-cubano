@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar Pedido - Sabor Cubano</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="pedidos-styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Sabor Cubano</div>
+    <div class="nav-links">
+        <a href="index.html#about">Nosotros</a>
+        <a href="menu.html">Menú</a>
+        <a href="index.html#location">Contacto</a>
+        <a href="index.html#reviews">Reseñas</a>
+    </div>
+</nav>
+
+<div class="page-hero">
+    <h1>🛒 Realizar Pedido</h1>
+    <p>Selecciona tus platos favoritos y envíanos tu pedido por WhatsApp</p>
+</div>
+
+<div class="page-layout">
+
+    <!-- MENU PRODUCTS -->
+    <div class="menu-col">
+        <h2 class="section-title"><i class="fas fa-utensils"></i> Elige tus Platos</h2>
+
+        <div class="category-tabs">
+            <button class="cat-tab active" onclick="filterCategory(event, 'all')">Todos</button>
+            <button class="cat-tab" onclick="filterCategory(event, 'entradas')">Entradas</button>
+            <button class="cat-tab" onclick="filterCategory(event, 'fuertes')">Platos Fuertes</button>
+            <button class="cat-tab" onclick="filterCategory(event, 'acompanamientos')">Acompañamientos</button>
+            <button class="cat-tab" onclick="filterCategory(event, 'postres')">Postres</button>
+            <button class="cat-tab" onclick="filterCategory(event, 'bebidas')">Bebidas</button>
+        </div>
+
+        <div id="products-container"></div>
+    </div>
+
+    <!-- SIDEBAR ORDER -->
+    <div class="order-sidebar">
+        <div class="sidebar-card">
+
+            <div class="sidebar-header">
+                <h3>Tu Pedido</h3>
+                <span class="cart-count-badge" id="cartCountBadge">0 items</span>
+            </div>
+
+            <div class="cart-items" id="cartItems">
+                <div class="cart-empty" id="cartEmpty">
+                    <i class="fas fa-shopping-basket"></i>
+                    Aún no has añadido productos
+                </div>
+            </div>
+
+            <div class="total-section">
+                <div class="total-row">
+                    <span>Subtotal</span>
+                    <span id="subtotalDisplay">$0.00</span>
+                </div>
+                <div class="total-row">
+                    <span>Envío</span>
+                    <span class="free-delivery">Gratis 🎉</span>
+                </div>
+                <div class="total-row main">
+                    <span>TOTAL</span>
+                    <span class="total-amount" id="totalDisplay">$0.00</span>
+                </div>
+            </div>
+
+            <div class="address-section">
+                <label><i class="fas fa-map-marker-alt"></i> &nbsp;Dirección de Entrega</label>
+                <textarea id="addressInput" placeholder="Ej: Calle 23 #456 entre J e I, Vedado, La Habana..."></textarea>
+            </div>
+
+            <div class="notes-section">
+                <label><i class="fas fa-sticky-note"></i> &nbsp;Notas adicionales (opcional)</label>
+                <input type="text" id="notesInput" placeholder="Ej: sin cebolla, extra salsa...">
+            </div>
+
+            <div class="send-section">
+                <button class="btn-send" id="sendBtn" onclick="sendOrder()">
+                    <i class="fab fa-whatsapp"></i>
+                    Enviar Pedido por WhatsApp
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Sabor Cubano. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="index.html#about">Nosotros</a>
+            <a href="menu.html">Menú</a>
+            <a href="index.html#location">Contacto</a>
+            <a href="index.html#reviews">Reseñas</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/5356735934" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="toast" id="toast"></div>
+
+<script src="pedidos-script.js"></script>
+</body>
+</html>
