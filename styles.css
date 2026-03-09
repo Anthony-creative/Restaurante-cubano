@@ -662,3 +662,348 @@ footer { background-color: #111; color: var(--light-text); padding: 40px 0; text
     .review-grid { grid-template-columns: 1fr; gap: 18px; }
     .review-form-container { padding: 28px 22px; }
 }
+
+
+/* ═══════════════════════════════════════════════
+   SCROLL ANIMATION — SECCIÓN CONTACTO
+   Inspirado en ContainerScroll de Aceternity UI
+   ═══════════════════════════════════════════════ */
+
+.scroll-section {
+    background: linear-gradient(180deg, #111 0%, #1C1C1C 100%);
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Contenedor que da el espacio para el scroll */
+.scroll-container {
+    min-height: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 80px 20px 120px;
+    position: relative;
+}
+
+/* ── TÍTULO ── */
+.scroll-title {
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 0;
+    will-change: transform;
+    position: relative;
+    z-index: 2;
+}
+
+.scroll-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+.scroll-title h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    color: var(--light-text);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    position: static;
+}
+
+/* Override the ::after from global h2 style */
+.scroll-title h2::after { display: none; }
+
+.scroll-h2-accent {
+    background: linear-gradient(90deg, var(--secondary-color), #ffaa00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.scroll-subtitle {
+    font-size: 1rem;
+    color: rgba(245,245,245,0.55);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ── CARD 3D ── */
+.scroll-card-wrap {
+    width: 100%;
+    max-width: 900px;
+    margin-top: -20px;
+    will-change: transform;
+    transform-origin: top center;
+    perspective: 1200px;
+}
+
+.scroll-card-inner {
+    border: 3px solid #4a4a4a;
+    border-radius: 24px;
+    background: #1e1e1e;
+    padding: 8px;
+    box-shadow:
+        0 0 0 0 rgba(0,0,0,0.3),
+        0 9px 20px rgba(0,0,0,0.45),
+        0 37px 37px rgba(0,0,0,0.4),
+        0 84px 50px rgba(0,0,0,0.22),
+        0 149px 60px rgba(0,0,0,0.08);
+    transform-origin: top center;
+    will-change: transform;
+}
+
+.scroll-card-content {
+    background: #111;
+    border-radius: 18px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 380px;
+}
+
+/* ── CONTACT INFO ── */
+.scroll-contacts {
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    background: #111;
+}
+
+.scroll-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.scroll-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255,215,0,0.1);
+    border: 1px solid rgba(255,215,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.scroll-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(245,245,245,0.4);
+    margin-bottom: 3px;
+}
+
+.scroll-value {
+    display: block;
+    font-size: 0.88rem;
+    color: rgba(245,245,245,0.85);
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.2s;
+}
+.scroll-value:hover { color: var(--secondary-color); }
+
+/* ── MAP ── */
+.scroll-map {
+    position: relative;
+    overflow: hidden;
+}
+.scroll-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    filter: grayscale(30%) contrast(1.1);
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE CONTACTO MOBILE
+   ══════════════════════════════════ */
+@media (max-width: 600px) {
+    .scroll-container {
+        min-height: auto;
+        padding: 44px 0 60px;
+    }
+    .scroll-title {
+        padding: 0 18px;
+        margin-bottom: 28px;
+    }
+    .scroll-title h2 { font-size: 1.6rem; }
+    .scroll-subtitle  { font-size: 0.82rem; }
+    .scroll-eyebrow   { font-size: 0.68rem; }
+
+    .scroll-card-wrap {
+        margin-top: 0;
+        padding: 0 14px;
+        perspective: 800px;
+        transform-origin: top center;
+    }
+    .scroll-card-inner {
+        border-width: 2px;
+        border-radius: 18px;
+        padding: 6px;
+    }
+    .scroll-card-content {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        border-radius: 14px;
+    }
+    .scroll-contacts { padding: 24px 20px; gap: 20px; }
+    .scroll-icon { width: 36px; height: 36px; font-size: 0.85rem; }
+    .scroll-value { font-size: 0.82rem; }
+    .scroll-map { height: 200px; }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .scroll-card-content { grid-template-columns: 1fr; }
+    .scroll-map { height: 240px; }
+    .scroll-contacts { padding: 30px 28px; }
+}
+
+
+/* ═══════════════════════════════════════════════
+   INTERACTIVE HOVER BUTTON
+   Recreación vanilla del componente de Aceternity
+   ═══════════════════════════════════════════════ */
+
+.ihb-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    min-width: 200px;
+    /* Corta la animación del blob */
+    isolation: isolate;
+    transition: box-shadow 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Variante outline (Ver Menú) ── */
+.ihb-btn--outline {
+    border: 2px solid rgba(255,255,255,0.4);
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+}
+.ihb-btn--outline:hover {
+    box-shadow: 0 8px 32px rgba(255,255,255,0.12);
+}
+
+/* ── Variante dorada (Realizar Pedido) ── */
+.ihb-btn--gold {
+    border: 2px solid var(--secondary-color);
+    color: #111;
+    background: var(--secondary-color);
+    box-shadow: 0 4px 20px rgba(255,215,0,0.35);
+}
+.ihb-btn--gold:hover {
+    box-shadow: 0 8px 36px rgba(255,215,0,0.5);
+}
+
+/* ── TEXTO INICIAL — se va a la derecha y desaparece ── */
+.ihb-text {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+/* ── HOVER TEXT + FLECHA — entra desde la izquierda ── */
+.ihb-hover {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    transform: translateX(-110%);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 0.88rem;
+}
+.ihb-btn--outline .ihb-hover { color: #fff; }
+.ihb-btn--gold    .ihb-hover { color: #111; }
+
+/* ── BLOB — círculo que crece y llena el botón ── */
+.ihb-blob {
+    position: absolute;
+    left: 22%;
+    top: 42%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    z-index: 1;
+    transform: scale(1);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                left      0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                top       0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ihb-btn--outline .ihb-blob { background: rgba(255,255,255,0.9); }
+.ihb-btn--gold    .ihb-blob { background: var(--primary-color); }
+
+/* ══ HOVER STATE ══ */
+
+/* Texto sale a la derecha */
+.ihb-btn:hover .ihb-text {
+    transform: translateX(120%);
+    opacity: 0;
+}
+
+/* Texto del hover entra desde izquierda */
+.ihb-btn:hover .ihb-hover {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Blob se expande para cubrir todo el botón */
+.ihb-btn:hover .ihb-blob {
+    left: -10%;
+    top: -10%;
+    transform: scale(22);
+}
+
+/* Color del texto hover sobre blob para outline */
+.ihb-btn--outline:hover .ihb-hover { color: #111; }
+.ihb-btn--gold:hover    .ihb-hover { color: #fff; }
+
+/* ── MOBILE: botones full-width en columna ── */
+@media (max-width: 600px) {
+    .ihb-btn {
+        width: 88%;
+        max-width: 300px;
+        min-width: unset;
+        padding: 13px 20px;
+        font-size: 0.83rem;
+        justify-content: flex-start;
+        padding-left: 28px;
+    }
+    .ihb-hover { justify-content: flex-start; padding-left: 28px; }
+}

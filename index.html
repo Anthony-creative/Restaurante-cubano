@@ -30,8 +30,22 @@
             <h1>El Sabor Auténtico de Cuba</h1>
             <p>Disfruta de la riqueza culinaria cubana en cada plato.</p>
             <div class="hero-buttons">
-                <a href="menu.html" class="btn">Ver Menú Completo</a>
-                <a href="pedidos.html" class="btn btn-pedido">🛒 Realizar Pedido</a>
+                <a href="menu.html" class="ihb-btn ihb-btn--outline">
+                    <span class="ihb-text">Ver Menú Completo</span>
+                    <span class="ihb-hover">
+                        <span>Ver Menú Completo</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                    <span class="ihb-blob"></span>
+                </a>
+                <a href="pedidos.html" class="ihb-btn ihb-btn--gold">
+                    <span class="ihb-text">🛒 Realizar Pedido</span>
+                    <span class="ihb-hover">
+                        <span>🛒 Realizar Pedido</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                    <span class="ihb-blob"></span>
+                </a>
             </div>
         </div>
     </header>
@@ -83,19 +97,69 @@
             </div>
         </section>
 
-        <section id="location" class="container">
-            <h2>Encuéntranos y Contáctanos</h2>
-            <div class="location-content">
-                <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> Calle Falsa 123, La Habana, Cuba</p>
-                    <p><i class="fas fa-phone"></i> Teléfono: <a href="tel:+5356735934">+53 56735934</a></p>
-                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@saborcubano.com">info@saborcubano.com</a></p>
-                    <p><i class="fas fa-clock"></i> Horario: Lunes a Sábado: 12:00 PM - 10:00 PM</p>
+        <!-- ══ CONTACTO CON SCROLL ANIMATION ══ -->
+        <section id="location" class="scroll-section">
+
+            <!-- Contenedor principal de la animación -->
+            <div class="scroll-container" id="scrollContainer">
+
+                <!-- TÍTULO que baja al hacer scroll -->
+                <div class="scroll-title" id="scrollTitle">
+                    <p class="scroll-eyebrow">¿Dónde estamos?</p>
+                    <h2>Encuéntranos y<br><span class="scroll-h2-accent">Contáctanos</span></h2>
+                    <p class="scroll-subtitle">Visítanos en La Habana o escríbenos, estamos listos para atenderte</p>
                 </div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.102370717273!2d-82.35878348497677!3d23.13680958490333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88cd791353f868ad%3A0x6b297b8c7b8c0b9!2sHavana%2C%20Cuba!5e0!3m2!1sen!2scu!4v1678888888888!5m2!1sen!2scu" allowfullscreen="" loading="lazy"></iframe>
+
+                <!-- TARJETA 3D que rota al hacer scroll -->
+                <div class="scroll-card-wrap" id="scrollCard">
+                    <div class="scroll-card-inner">
+
+                        <!-- Info de contacto -->
+                        <div class="scroll-card-content">
+                            <div class="scroll-contacts">
+                                <div class="scroll-contact-item">
+                                    <div class="scroll-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                    <div>
+                                        <span class="scroll-label">Dirección</span>
+                                        <span class="scroll-value">Calle Falsa 123, La Habana, Cuba</span>
+                                    </div>
+                                </div>
+                                <div class="scroll-contact-item">
+                                    <div class="scroll-icon"><i class="fas fa-phone"></i></div>
+                                    <div>
+                                        <span class="scroll-label">Teléfono</span>
+                                        <a href="tel:+5356735934" class="scroll-value">+53 56735934</a>
+                                    </div>
+                                </div>
+                                <div class="scroll-contact-item">
+                                    <div class="scroll-icon"><i class="fas fa-envelope"></i></div>
+                                    <div>
+                                        <span class="scroll-label">Email</span>
+                                        <a href="mailto:info@saborcubano.com" class="scroll-value">info@saborcubano.com</a>
+                                    </div>
+                                </div>
+                                <div class="scroll-contact-item">
+                                    <div class="scroll-icon"><i class="fas fa-clock"></i></div>
+                                    <div>
+                                        <span class="scroll-label">Horario</span>
+                                        <span class="scroll-value">Lunes–Sábado: 12:00 PM – 10:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mapa -->
+                            <div class="scroll-map">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.102370717273!2d-82.35878348497677!3d23.13680958490333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88cd791353f868ad%3A0x6b297b8c7b8c0b9!2sHavana%2C%20Cuba!5e0!3m2!1sen!2scu!4v1678888888888!5m2!1sen!2scu"
+                                    allowfullscreen="" loading="lazy">
+                                </iframe>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
+
+            </div><!-- /scroll-container -->
         </section>
 
         <section id="reviews" class="container">
@@ -155,10 +219,4 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/5356735934" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <a href="https://wa.me/5356735934" class
