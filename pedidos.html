@@ -10,28 +10,89 @@
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar">
     <div class="logo">Sabor Cubano</div>
-    <div class="nav-links">
-        <a href="index.html#about">Nosotros</a>
-        <a href="menu.html">Menú</a>
-        <a href="index.html#location">Contacto</a>
-        <a href="index.html#reviews">Reseñas</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html#about" onclick="closeNav()">Nosotros</a>
+        <a href="menu.html" onclick="closeNav()">Menú</a>
+        <a href="index.html#location" onclick="closeNav()">Contacto</a>
+        <a href="index.html#reviews" onclick="closeNav()">Reseñas</a>
     </div>
 </nav>
 
+<!-- HERO -->
 <div class="page-hero">
     <h1>🛒 Realizar Pedido</h1>
-    <p>Selecciona tus platos favoritos y envíanos tu pedido por WhatsApp</p>
+    <p>Selecciona tus platos y envíanos tu pedido por WhatsApp</p>
 </div>
 
+<!-- CARRITO FLOTANTE MOBILE -->
+<div class="cart-fab" id="cartFab" onclick="toggleCartDrawer()">
+    <i class="fas fa-shopping-basket"></i>
+    <span class="cart-fab-badge" id="cartFabBadge">0</span>
+    <span class="cart-fab-total" id="cartFabTotal">$0.00</span>
+</div>
+
+<!-- DRAWER DEL CARRITO (MOBILE) -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+<div class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+        <h3><i class="fas fa-shopping-basket"></i> Tu Pedido</h3>
+        <button class="drawer-close" onclick="toggleCartDrawer()"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+        <div class="cart-empty" id="cartEmpty">
+            <i class="fas fa-shopping-basket"></i>
+            Aún no has añadido productos
+        </div>
+    </div>
+
+    <div class="total-section">
+        <div class="total-row">
+            <span>Subtotal</span>
+            <span id="subtotalDisplay">$0.00</span>
+        </div>
+        <div class="total-row">
+            <span>Envío</span>
+            <span class="free-delivery">Gratis 🎉</span>
+        </div>
+        <div class="total-row main">
+            <span>TOTAL</span>
+            <span class="total-amount" id="totalDisplay">$0.00</span>
+        </div>
+    </div>
+
+    <div class="address-section">
+        <label><i class="fas fa-map-marker-alt"></i> Dirección de Entrega</label>
+        <textarea id="addressInput" placeholder="Ej: Calle 23 #456 entre J e I, Vedado..."></textarea>
+    </div>
+
+    <div class="notes-section">
+        <label><i class="fas fa-sticky-note"></i> Notas (opcional)</label>
+        <input type="text" id="notesInput" placeholder="Ej: sin cebolla, extra salsa...">
+    </div>
+
+    <div class="send-section">
+        <button class="btn-send" id="sendBtn" onclick="sendOrder()">
+            <i class="fab fa-whatsapp"></i>
+            Enviar Pedido por WhatsApp
+        </button>
+    </div>
+</div>
+
+<!-- CONTENIDO PRINCIPAL -->
 <div class="page-layout">
 
-    <!-- MENU PRODUCTS -->
+    <!-- PRODUCTOS -->
     <div class="menu-col">
         <h2 class="section-title"><i class="fas fa-utensils"></i> Elige tus Platos</h2>
 
-        <div class="category-tabs">
+        <div class="category-tabs" id="categoryTabs">
             <button class="cat-tab active" onclick="filterCategory(event, 'all')">Todos</button>
             <button class="cat-tab" onclick="filterCategory(event, 'entradas')">Entradas</button>
             <button class="cat-tab" onclick="filterCategory(event, 'fuertes')">Platos Fuertes</button>
@@ -43,17 +104,16 @@
         <div id="products-container"></div>
     </div>
 
-    <!-- SIDEBAR ORDER -->
+    <!-- SIDEBAR DESKTOP -->
     <div class="order-sidebar">
         <div class="sidebar-card">
-
             <div class="sidebar-header">
                 <h3>Tu Pedido</h3>
                 <span class="cart-count-badge" id="cartCountBadge">0 items</span>
             </div>
 
-            <div class="cart-items" id="cartItems">
-                <div class="cart-empty" id="cartEmpty">
+            <div class="cart-items" id="cartItemsDesktop">
+                <div class="cart-empty">
                     <i class="fas fa-shopping-basket"></i>
                     Aún no has añadido productos
                 </div>
@@ -62,7 +122,7 @@
             <div class="total-section">
                 <div class="total-row">
                     <span>Subtotal</span>
-                    <span id="subtotalDisplay">$0.00</span>
+                    <span id="subtotalDisplayDesktop">$0.00</span>
                 </div>
                 <div class="total-row">
                     <span>Envío</span>
@@ -70,27 +130,26 @@
                 </div>
                 <div class="total-row main">
                     <span>TOTAL</span>
-                    <span class="total-amount" id="totalDisplay">$0.00</span>
+                    <span class="total-amount" id="totalDisplayDesktop">$0.00</span>
                 </div>
             </div>
 
             <div class="address-section">
-                <label><i class="fas fa-map-marker-alt"></i> &nbsp;Dirección de Entrega</label>
-                <textarea id="addressInput" placeholder="Ej: Calle 23 #456 entre J e I, Vedado, La Habana..."></textarea>
+                <label><i class="fas fa-map-marker-alt"></i> Dirección de Entrega</label>
+                <textarea id="addressInputDesktop" placeholder="Ej: Calle 23 #456 entre J e I, Vedado, La Habana..."></textarea>
             </div>
 
             <div class="notes-section">
-                <label><i class="fas fa-sticky-note"></i> &nbsp;Notas adicionales (opcional)</label>
-                <input type="text" id="notesInput" placeholder="Ej: sin cebolla, extra salsa...">
+                <label><i class="fas fa-sticky-note"></i> Notas adicionales (opcional)</label>
+                <input type="text" id="notesInputDesktop" placeholder="Ej: sin cebolla, extra salsa...">
             </div>
 
             <div class="send-section">
-                <button class="btn-send" id="sendBtn" onclick="sendOrder()">
+                <button class="btn-send" id="sendBtnDesktop" onclick="sendOrderDesktop()">
                     <i class="fab fa-whatsapp"></i>
                     Enviar Pedido por WhatsApp
                 </button>
             </div>
-
         </div>
     </div>
 
@@ -112,10 +171,6 @@
         </div>
     </div>
 </footer>
-
-<a href="https://wa.me/5356735934" class="whatsapp-btn" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
 
 <div class="toast" id="toast"></div>
 
