@@ -114,6 +114,44 @@ header {
     animation: none;
 }
 
+/* Hero buttons wrapper */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Botón Realizar Pedido - hero */
+.btn-pedido {
+    background-color: #FFD700;
+    color: #1C1C1C;
+    animation: pulse 2s infinite;
+}
+
+.btn-pedido:hover {
+    background-color: #e6c200;
+    color: #1C1C1C;
+    transform: translateY(-3px);
+    animation: none;
+}
+
+/* Botón Realizar Pedido - navbar */
+.btn-pedido-nav {
+    background-color: var(--primary-color);
+    color: var(--light-text) !important;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-pedido-nav:hover {
+    background-color: var(--secondary-color) !important;
+    color: #1C1C1C !important;
+    transform: translateY(-2px);
+}
+
 /* About Section */
 #about {
     background-color: #282828;
