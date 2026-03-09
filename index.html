@@ -10,21 +10,22 @@
 </head>
 <body>
 
+    <nav class="navbar" id="mainNav">
+        <div class="logo">Sabor Cubano</div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#about" onclick="closeNav()">Nosotros</a>
+            <a href="#products" onclick="closeNav()">Productos</a>
+            <a href="menu.html" onclick="closeNav()">Menú Completo</a>
+            <a href="pedidos.html" class="btn-pedido-nav" onclick="closeNav()">🛒 Realizar Pedido</a>
+            <a href="#location" onclick="closeNav()">Contacto</a>
+            <a href="#reviews" onclick="closeNav()">Reseñas</a>
+        </div>
+    </nav>
+
     <header>
-        <nav class="navbar">
-            <div class="logo">Sabor Cubano</div>
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links" id="navLinks">
-                <a href="#about" onclick="closeNav()">Nosotros</a>
-                <a href="#products" onclick="closeNav()">Productos</a>
-                <a href="menu.html" onclick="closeNav()">Menú Completo</a>
-                <a href="pedidos.html" class="btn-pedido-nav" onclick="closeNav()">🛒 Realizar Pedido</a>
-                <a href="#location" onclick="closeNav()">Contacto</a>
-                <a href="#reviews" onclick="closeNav()">Reseñas</a>
-            </div>
-        </nav>
         <div class="hero-content">
             <h1>El Sabor Auténtico de Cuba</h1>
             <p>Disfruta de la riqueza culinaria cubana en cada plato.</p>
