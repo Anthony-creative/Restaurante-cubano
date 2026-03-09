@@ -12,12 +12,15 @@
 
     <nav class="navbar">
         <div class="logo">Sabor Cubano</div>
-        <div class="nav-links">
-            <a href="index.html#about">Nosotros</a>
-            <a href="index.html#products">Platos Estrella</a>
-            <a href="#menu-full">Menú Completo</a>
-            <a href="index.html#location">Contacto</a>
-            <a href="index.html#reviews">Reseñas</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html#about" onclick="closeNav()">Nosotros</a>
+            <a href="index.html#products" onclick="closeNav()">Platos Estrella</a>
+            <a href="#menu-full" onclick="closeNav()">Menú Completo</a>
+            <a href="index.html#location" onclick="closeNav()">Contacto</a>
+            <a href="index.html#reviews" onclick="closeNav()">Reseñas</a>
         </div>
     </nav>
 
@@ -27,7 +30,6 @@
 
     <main id="menu-full">
 
-        <!-- Entradas -->
         <section class="menu-section container">
             <h2>Entradas</h2>
             <div class="menu-grid">
@@ -58,7 +60,6 @@
             </div>
         </section>
 
-        <!-- Platos Fuertes -->
         <section class="menu-section container">
             <h2>Platos Fuertes</h2>
             <div class="menu-grid">
@@ -105,7 +106,6 @@
             </div>
         </section>
 
-        <!-- Acompañamientos -->
         <section class="menu-section container">
             <h2>Acompañamientos</h2>
             <div class="menu-grid">
@@ -144,7 +144,6 @@
             </div>
         </section>
 
-        <!-- Postres -->
         <section class="menu-section container">
             <h2>Postres</h2>
             <div class="menu-grid">
@@ -167,7 +166,6 @@
             </div>
         </section>
 
-        <!-- Bebidas -->
         <section class="menu-section container">
             <h2>Bebidas</h2>
             <div class="menu-grid">
@@ -225,7 +223,6 @@
         </div>
     </footer>
 
-    <!-- Botón flotante de WhatsApp -->
     <a href="https://wa.me/5356735934" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>

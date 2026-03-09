@@ -13,13 +13,16 @@
     <header>
         <nav class="navbar">
             <div class="logo">Sabor Cubano</div>
-            <div class="nav-links">
-                <a href="#about">Nosotros</a>
-                <a href="#products">Productos</a>
-                <a href="menu.html">Menú Completo</a>
-                <a href="pedidos.html" class="btn-pedido-nav">🛒 Realizar Pedido</a>
-                <a href="#location">Contacto</a>
-                <a href="#reviews">Reseñas</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" onclick="closeNav()">Nosotros</a>
+                <a href="#products" onclick="closeNav()">Productos</a>
+                <a href="menu.html" onclick="closeNav()">Menú Completo</a>
+                <a href="pedidos.html" class="btn-pedido-nav" onclick="closeNav()">🛒 Realizar Pedido</a>
+                <a href="#location" onclick="closeNav()">Contacto</a>
+                <a href="#reviews" onclick="closeNav()">Reseñas</a>
             </div>
         </nav>
         <div class="hero-content">
@@ -33,8 +36,6 @@
     </header>
 
     <main>
-
-        <!-- Sección: Nosotros -->
         <section id="about" class="container">
             <h2>Nuestra Historia</h2>
             <div class="about-content">
@@ -48,7 +49,6 @@
             </div>
         </section>
 
-        <!-- Sección: Productos -->
         <section id="products" class="container">
             <h2>Nuestros Platos Estrella</h2>
             <div class="product-grid">
@@ -82,59 +82,45 @@
             </div>
         </section>
 
-        <!-- Sección: Ubicación y Contacto -->
         <section id="location" class="container">
             <h2>Encuéntranos y Contáctanos</h2>
             <div class="location-content">
                 <div class="contact-info">
                     <p><i class="fas fa-map-marker-alt"></i> Calle Falsa 123, La Habana, Cuba</p>
                     <p><i class="fas fa-phone"></i> Teléfono: <a href="tel:+5356735934">+53 56735934</a></p>
-                    <p><i class="fas fa-envelope"></i> Email: <a href="/cdn-cgi/l/email-protection#dcb5b2bab39cafbdbeb3aebfa9bebdb2b3f2bfb3b1"><span class="__cf_email__" data-cfemail="94fdfaf2fbd4e7f5f6fbe6f7e1f6f5fafbbaf7fbf9">[email&#160;protected]</span></a></p>
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@saborcubano.com">info@saborcubano.com</a></p>
                     <p><i class="fas fa-clock"></i> Horario: Lunes a Sábado: 12:00 PM - 10:00 PM</p>
                 </div>
                 <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.102370717273!2d-82.35878348497677!3d23.13680958490333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88cd791353f868ad%3A0x6b297b8c7b8c0b9!2sHavana%2C%20Cuba!5e0!3m2!1sen!2scu!4v1678888888888!5m2!1sen!2scu"
-                        allowfullscreen=""
-                        loading="lazy">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.102370717273!2d-82.35878348497677!3d23.13680958490333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88cd791353f868ad%3A0x6b297b8c7b8c0b9!2sHavana%2C%20Cuba!5e0!3m2!1sen!2scu!4v1678888888888!5m2!1sen!2scu" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </section>
 
-        <!-- Sección: Reseñas -->
         <section id="reviews" class="container">
             <h2>Lo que Dicen Nuestros Clientes</h2>
             <div class="review-grid">
                 <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p>"¡Una experiencia culinaria auténticamente cubana! La ropa vieja es espectacular y el ambiente es muy acogedor."</p>
                     <div class="reviewer-name">- María G.</div>
                 </div>
                 <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    </div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
                     <p>"El mejor lechón asado que he probado fuera de casa. ¡Volveré pronto para probar más platos!"</p>
                     <div class="reviewer-name">- Juan P.</div>
                 </div>
                 <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p>"Excelente servicio y comida deliciosa. Los moros y cristianos son una delicia."</p>
                     <div class="reviewer-name">- Sofía L.</div>
                 </div>
             </div>
-
             <div class="review-form-container">
                 <h3>Deja Tu Reseña</h3>
                 <form class="review-form" id="reviewForm">
                     <label for="reviewerName">Tu Nombre:</label>
                     <input type="text" id="reviewerName" name="reviewerName" required>
-
                     <label for="rating">Puntuación:</label>
                     <select id="rating" name="rating" required>
                         <option value="5">5 Estrellas</option>
@@ -143,15 +129,12 @@
                         <option value="2">2 Estrellas</option>
                         <option value="1">1 Estrella</option>
                     </select>
-
                     <label for="reviewComment">Tu Comentario:</label>
                     <textarea id="reviewComment" name="reviewComment" required></textarea>
-
                     <button type="submit">Enviar Reseña</button>
                 </form>
             </div>
         </section>
-
     </main>
 
     <footer>
@@ -171,5 +154,10 @@
         </div>
     </footer>
 
-    <!-- Botón flotante de WhatsApp -->
-    <a href="https://wa.me/5356735934" class
+    <a href="https://wa.me/5356735934" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
